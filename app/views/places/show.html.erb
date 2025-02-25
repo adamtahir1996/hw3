@@ -5,18 +5,22 @@
     <li>
       <strong><%= entry["title"] %></strong>  
       <br>
-      <%= entry["description"] %>  
-      <br>
       <%= entry["occurred_on"] %>
+      <br>
+      <%= entry["description"] %>
     </li>
   <% end %>
 </ul>
 
 <p>
-  <a href="/entries/new">New Post</a>
+  <a href="/entries/new?place_id=<% @place["id"] %>">New Post</a>
 </p>
 
 <p>
   <a href="/places">Back to Places</a>
 </p>
 
+<form action="/places/<% @place["id"] %>" method = "post">
+  <input type ="hidden name="_method" value=delete>
+  <button> Delete Place</button>
+</form>
